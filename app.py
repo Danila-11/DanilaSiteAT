@@ -1,7 +1,40 @@
 from flask import Flask
-app = Flask(__name__)
 import os
 
+app = Flask(__name__)
+
+# Общий стиль сайта
+STYLE = '''
+    <style>
+        body {
+            background-color: #e0f7ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #006699;
+        }
+        p {
+            font-size: 20px;
+        }
+        a {
+            margin: 10px;
+            font-size: 18px;
+            color: #004466;
+            text-decoration: none;
+        }
+        .counter {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+'''
+
+# Функция счётчика
 def update_counter():
     filename = "counter.txt"
     if not os.path.exists(filename):
@@ -20,39 +53,16 @@ def home():
     count = update_counter()
     return f'''
     <html>
-    <head>
-STYLE = '''
-        <style>
-            body {{
-                background-color: #e0f7ff;
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding-top: 50px;
-            }}
-            h1 {{
-                color: #006699;
-            }}
-            p {{
-                font-size: 20px;
-            }}
-            .counter {{
-                position: fixed;
-                bottom: 10px;
-                right: 10px;
-                font-size: 14px;
-                color: gray;
-            }}
-        </style>
-'''
-    </head>
+    <head>{STYLE}</head>
     <body>
         <h1>Анекдот дня</h1>
         <p>Программист — это машина для преобразования кофе в код.</p>
-        <a href="/about">О нас</a> | <a href="/contact">Контакты</a>
+        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
     </html>
     '''
+
 @app.route('/about')
 def about():
     return f'''
@@ -65,6 +75,7 @@ def about():
     </body>
     </html>
     '''
+
 @app.route('/contacts')
 def contacts():
     return '''
@@ -81,7 +92,7 @@ def contacts():
                 height: 100vh;
             }
             .overlay {
-                background-color: rgba(0, 0, 0, 0.5); /* затемнение: чёрный, 50% прозрачности */
+                background-color: rgba(0, 0, 0, 0.5);
                 color: white;
                 height: 100%;
                 width: 100%;
@@ -109,7 +120,6 @@ def contacts():
     </body>
     </html>
     '''
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
