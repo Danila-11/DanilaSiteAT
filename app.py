@@ -21,6 +21,7 @@ def home():
     return f'''
     <html>
     <head>
+STYLE = '''
         <style>
             body {{
                 background-color: #e0f7ff;
@@ -42,6 +43,7 @@ def home():
                 color: gray;
             }}
         </style>
+'''
     </head>
     <body>
         <h1>Анекдот дня</h1>
