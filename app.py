@@ -47,7 +47,7 @@ def about():
     </body>
     </html>
     '''
-@app.route('/contact')
+@app.route('/contacts')
 def contact():
     return '''
     <html>
