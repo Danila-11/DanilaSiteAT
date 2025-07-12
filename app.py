@@ -1,37 +1,53 @@
 from flask import Flask
 app = Flask(__name__)
-# Общая стилизация
-STYLE = '''
-    <style>
-        body {
-            background-color: #e0f7ff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-        h1 {
-            color: #006699;
-        }
-        p {
-            font-size: 20px;
-        }
-        a {
-            margin: 10px;
-            font-size: 18px;
-            color: #004466;
-            text-decoration: none;
-        }
-    </style>
-    '''
+import os
+
+def update_counter():
+    filename = "counter.txt"
+    if not os.path.exists(filename):
+        with open(filename, "w") as f:
+            f.write("0")
+    with open(filename, "r+") as f:
+        count = int(f.read())
+        count += 1
+        f.seek(0)
+        f.write(str(count))
+        f.truncate()
+    return count
+
 @app.route('/')
 def home():
+    count = update_counter()
     return f'''
     <html>
-    <head>{STYLE}</head>
+    <head>
+        <style>
+            body {{
+                background-color: #e0f7ff;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 50px;
+            }}
+            h1 {{
+                color: #006699;
+            }}
+            p {{
+                font-size: 20px;
+            }}
+            .counter {{
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                font-size: 14px;
+                color: gray;
+            }}
+        </style>
+    </head>
     <body>
         <h1>Анекдот дня</h1>
-        <p>Программист - это машина для преобразования кофе в код.</p>
-        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
+        <p>Программист — это машина для преобразования кофе в код.</p>
+        <a href="/about">О нас</a> | <a href="/contact">Контакты</a>
+        <div class="counter">👁️ Посещения: {count}</div>
     </body>
     </html>
     '''
