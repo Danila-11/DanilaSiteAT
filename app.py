@@ -31,7 +31,7 @@ def home():
     <body>
         <h1>Анекдот дня</h1>
         <p>Программист - это машина для преобразования кофе в код.</p>
-        <a href="/about">О нас</a> | <a href="/contact">Контакты</a>
+        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
     </body>
     </html>
     '''
@@ -43,12 +43,12 @@ def about():
     <body>
         <h1>О проекте</h1>
         <p>Этот сайт показывает случайные анекдоты, а также используется для улучшения навыков в написании кода на Python</p>
-        <a href="/">Главная</a>
+        <a href="/">Главная</a> | <a href="/contacts">Контакты</a>
     </body>
     </html>
     '''
 @app.route('/contacts')
-def contact():
+def contacts():
     return '''
     <html>
     <head>
@@ -86,7 +86,7 @@ def contact():
         <div class="overlay">
             <h1>Контакты</h1>
             <p>Связаться со мной можно по почте: Danila.Isaev.com</p>
-            <a href="/">На главную</a>
+            <a href="/">На главную</a> | <a href="/about">О нас</a>
         </div>
     </body>
     </html>
