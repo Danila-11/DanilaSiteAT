@@ -1,4 +1,5 @@
 from flask import Flask
+import random
 import os
 
 app = Flask(__name__)
@@ -48,15 +49,37 @@ def update_counter():
         f.truncate()
     return count
 
+JOKES = [
+    "Программист — это машина для преобразования кофе в код.",
+    "На 101% программист состоит из кофе и переменных.",
+    "Сломался Wi-Fi — пришлось общаться с семьёй. Оказывается, милые люди!",
+    "Программист не пьёт чай — он его компилирует.",
+    "Говорят, сон полезен… но код ночью пишетcя лучше!"
+]
+
+@app.route('/random')
+def random_joke():
+    return random.choice(JOKES)
+
 @app.route('/')
 def home():
     count = update_counter()
     return f'''
     <html>
-    <head>{STYLE}</head>
+    <head>{STYLE}
+    <script>
+        async function getJoke() {{
+            const response = await fetch('/random');
+            const joke = await response.text();
+            document.getElementById('joke-text').innerText = joke;
+        }}
+    </script>
+    </head>
     <body>
         <h1>Анекдот дня</h1>
-        <p>Программист — это машина для преобразования кофе в код.</p>
+        <p id="joke-text">Нажми кнопку, чтобы увидеть анекдот!</p>
+        <button onclick="getJoke()">Сгенерировать анекдот</button>
+        <br><br>
         <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
