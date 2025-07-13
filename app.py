@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, request, render_template, redirect, url_for, response
+from flask import Flask, request, render_template, redirect, url_for, Response
 import random
 import os
 import sqlite3
