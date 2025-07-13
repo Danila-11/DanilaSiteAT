@@ -1,9 +1,17 @@
-from flask import Flask, Response
+import logging
+from flask import Flask, Response, Request
 import random
 import os
 import sqlite3
 
 app = Flask(__name__)
+
+# === НАСТРОЙКА ЛОГИРОВАНИЯ ===
+logging.basicConfig(
+    filename='error.log',
+    level=logging.ERROR,
+    format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+)
 
 # Общий стиль
 STYLE = '''
@@ -156,40 +164,32 @@ def contacts():
     </body>
     </html>
     '''
+# Обработка 404 — Страница не найдена
 @app.errorhandler(404)
 def page_not_found(e):
+    app.logger.error(f"Ошибка 404: {request.path} не найдена.")
     return '''
-    <html>
-    <head>
-        <style>
-            body {
-                background-color: #fff4f4;
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding-top: 100px;
-                color: #cc0000;
-            }
-            img {
-                width: 300px;
-                margin-top: 30px;
-            }
-            a {
-                display: block;
-                margin-top: 40px;
-                font-size: 18px;
-                color: #006699;
-                text-decoration: none;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Упс! Страница не найдена (404)</h1>
+    <html><head><title>Ошибка 404</title></head>
+    <body style="text-align:center;padding-top:50px;">
+        <h1 style="color:red;">Упс! Страница не найдена (404)</h1>
         <p>Похоже, вы забрели не туда.</p>
-        <img src="/static/404.jpg" alt="404">
-        <a href="/">Вернуться на главную</a>
-    </body>
-    </html>
+        <img src="/static/404.jpg" alt="404" width="300">
+        <br><br><a href="/">Вернуться на главную</a>
+    </body></html>
     ''', 404
+
+# Обработка 500 — Внутренняя ошибка сервера
+@app.errorhandler(500)
+def internal_error(e):
+    app.logger.error(f"Ошибка 500: {e}", exc_info=True)
+    return '''
+    <html><head><title>Ошибка 500</title></head>
+    <body style="text-align:center;padding-top:50px;">
+        <h1 style="color:red;">Ошибка сервера (500)</h1>
+        <p>Что-то пошло не так. Мы уже работаем над этим!</p>
+        <br><a href="/">Вернуться на главную</a>
+    </body></html>
+    ''', 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
