@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, Response, Request
+from flask import Flask, request, render_template, redirect, url_for, response
 import random
 import os
 import sqlite3
@@ -10,7 +10,7 @@ app = Flask(__name__)
 logging.basicConfig(
     filename='error.log',
     level=logging.ERROR,
-    format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+    format='%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
 )
 
 # Общий стиль
