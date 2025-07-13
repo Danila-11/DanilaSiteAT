@@ -156,6 +156,40 @@ def contacts():
     </body>
     </html>
     '''
+@app.errorhandler(404)
+def page_not_found(e):
+    return '''
+    <html>
+    <head>
+        <style>
+            body {
+                background-color: #fff4f4;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 100px;
+                color: #cc0000;
+            }
+            img {
+                width: 300px;
+                margin-top: 30px;
+            }
+            a {
+                display: block;
+                margin-top: 40px;
+                font-size: 18px;
+                color: #006699;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Упс! Страница не найдена (404)</h1>
+        <p>Похоже, вы забрели не туда.</p>
+        <img src="/static/404.jpg" alt="404">
+        <a href="/">Вернуться на главную</a>
+    </body>
+    </html>
+    ''', 404
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
