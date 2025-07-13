@@ -7,11 +7,17 @@ import sqlite3
 app = Flask(__name__)
 
 # === НАСТРОЙКА ЛОГИРОВАНИЯ ===
+import logging
+from flask import Flask, request
+
 logging.basicConfig(
     filename='error.log',
-    level=logging.ERROR,
-    format='%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+    level=logging.WARNING,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    encoding='utf-8'
 )
+
+app_logger = logging.getLogger(__name__)
 
 # Общий стиль
 STYLE = '''
