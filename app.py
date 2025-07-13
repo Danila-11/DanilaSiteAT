@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 import random
 import os
 import sqlite3
@@ -95,9 +95,9 @@ def random_joke():
     conn.close()
 
     if jokes:
-        return random.choice(jokes)
+        return Response(random.choice(jokes), content_type='text/plain; charset=utf-8')
     else:
-        return "Анекдотов пока нет."
+        return Response("Анекдотов пока нет.", content_type='text/plain; charset=utf-8')
 
 @app.route('/about')
 def about():
