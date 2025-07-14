@@ -1,10 +1,11 @@
 import logging
-from flask import Flask, request, render_template, redirect, url_for, Response, redirect
+from flask import Flask, request, render_template, redirect, url_for, Response, redirect, session
 import random
 import os
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'simon'
 
 # === НАСТРОЙКА ЛОГИРОВАНИЯ ===
 import logging
@@ -139,13 +140,22 @@ def show_joke(joke_id):
     '''
 
 @app.route('/like/<int:joke_id>', methods=['POST'])
-def like_joke(joke_id):
+def like(joke_id):
+    liked_jokes = session.get('liked_jokes', [])
+    if joke_id in liked_jokes:
+        return 'already liked', 200
+
     conn = sqlite3.connect('jokes.db')
-    cursor = conn.cursor()
-    cursor.execute("UPDATE jokes SET likes = likes + 1 WHERE id = ?", (joke_id,))
+    c = conn.cursor()
+    c.execute('UPDATE jokes SET likes = likes + 1 WHERE id = ?', (joke_id,))
     conn.commit()
     conn.close()
-    return redirect(f'/joke/{joke_id}')# Отдаёт случайный анекдот из базы
+
+    liked_jokes.append(joke_id)
+    session['liked_jokes'] = liked_jokes
+
+    return 'ok', 200
+
 @app.route('/random')
 def random_joke():
     conn = sqlite3.connect('jokes.db')
