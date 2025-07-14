@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, request, render_template, redirect, url_for, Response, redirect, session
+from flask import Flask, request, render_template_string, redirect, url_for, Response, session
 import random
 import os
 import sqlite3
@@ -7,10 +7,26 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'simon'
 
-# === НАСТРОЙКА ЛОГИРОВАНИЯ ===
-import logging
-from flask import Flask, request
+def get_random_joke_id(exclude_id=None):
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    if exclude_id:
+        cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    else:
+        cursor.execute("SELECT id FROM jokes ORDER BY RANDOM() LIMIT 1")
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result else None
 
+def get_joke_text_by_id(joke_id):
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT text FROM jokes WHERE id = ?", (joke_id,))
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result else "Анекдот не найден"
+
+# === ЛОГИРОВАНИЕ ===
 logging.basicConfig(
     filename='error.log',
     level=logging.WARNING,
@@ -18,9 +34,35 @@ logging.basicConfig(
     encoding='utf-8'
 )
 
-app_logger = logging.getLogger(__name__)
+# === ФУНКЦИИ ===
 
-# Общий стиль
+def get_random_joke_from_db(exclude_text=None):
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+
+    if exclude_text:
+        cursor.execute("SELECT text FROM jokes WHERE text != ? ORDER BY RANDOM() LIMIT 1", (exclude_text,))
+    else:
+        cursor.execute("SELECT text FROM jokes ORDER BY RANDOM() LIMIT 1")
+
+    result = cursor.fetchone()
+    conn.close()
+
+    return result[0] if result else None
+
+def update_counter():
+    filename = "counter.txt"
+    if not os.path.exists(filename):
+        with open(filename, "w") as f:
+            f.write("0")
+    with open(filename, "r+") as f:
+        count = int(f.read())
+        count += 1
+        f.seek(0)
+        f.write(str(count))
+        f.truncate()
+    return count
+
 STYLE = '''
     <style>
         body {
@@ -60,33 +102,14 @@ STYLE = '''
     </style>
 '''
 
-# Счётчик посещений
-def update_counter():
-    filename = "counter.txt"
-    if not os.path.exists(filename):
-        with open(filename, "w") as f:
-            f.write("0")
-    with open(filename, "r+") as f:
-        count = int(f.read())
-        count += 1
-        f.seek(0)
-        f.write(str(count))
-        f.truncate()
-    return count
-
-# Главная страница
-import sqlite3
-import os
-import random
+# === РОУТЫ ===
 
 @app.route('/')
 def home():
     count = update_counter()
     return f'''
     <html>
-    <head>
-        {STYLE}
-    </head>
+    <head>{STYLE}</head>
     <body>
         <h1>Добро пожаловать!</h1>
         <p>Нажмите на кнопку ниже, чтобы получить случайный анекдот 👇</p>
@@ -94,7 +117,7 @@ def home():
             <button type="submit">🔁 Сгенерировать анекдот</button>
         </form>
         <br><br>
-        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
+        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a> | <a href="/battle">Битва анекдотов</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
     </html>
@@ -135,23 +158,22 @@ def show_joke(joke_id):
 
     return f'''
     <html>
-    <head>
-        {STYLE}
-        <script>
-            async function likeJoke(jokeId) {{
-                const response = await fetch('/like/' + jokeId, {{
-                    method: 'POST'
-                }});
-                const result = await response.text();
-                if (result === 'ok') {{
-                    const countElem = document.getElementById('like-count');
-                    countElem.innerText = parseInt(countElem.innerText) + 1;
-                    document.getElementById('like-btn').disabled = true;
-                }} else if (result === 'already liked') {{
-                    alert("Вы уже поставили лайк этому анекдоту.");
-                }}
+    <head>{STYLE}
+    <script>
+        async function likeJoke(jokeId) {{
+            const response = await fetch('/like/' + jokeId, {{
+                method: 'POST'
+            }});
+            const result = await response.text();
+            if (result === 'ok') {{
+                const countElem = document.getElementById('like-count');
+                countElem.innerText = parseInt(countElem.innerText) + 1;
+                document.getElementById('like-btn').disabled = true;
+            }} else if (result === 'already liked') {{
+                alert("Вы уже поставили лайк этому анекдоту.");
             }}
-        </script>
+        }}
+    </script>
     </head>
     <body>
         <h1>Анекдот дня</h1>
@@ -160,9 +182,8 @@ def show_joke(joke_id):
         <form action="/generate" method="post" style="display:inline; margin-left: 10px;">
             <button type="submit">🔁 Сгенерировать анекдот</button>
         </form>
-
         <br><br>
-        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
+        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a> | <a href="/battle">Битва анекдотов</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
     </html>
@@ -185,18 +206,116 @@ def like(joke_id):
 
     return 'ok', 200
 
-@app.route('/random')
-def random_joke():
-    conn = sqlite3.connect('jokes.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT text FROM jokes')
-    jokes = [row[0] for row in cursor.fetchall()]
-    conn.close()
+@app.route('/battle')
+def battle():
+    battle_count = session.get('battle_count', 0)
+    winner_id = session.get('winner_id')
 
-    if jokes:
-        return Response(random.choice(jokes), content_type='text/plain; charset=utf-8')
+    if battle_count >= 30 and winner_id:
+        conn = sqlite3.connect('jokes.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT text FROM jokes WHERE id = ?", (winner_id,))
+        winner_text = cursor.fetchone()
+        conn.close()
+
+        return render_template_string('''
+        <html><head>
+        <style>
+        body { background-color: #cceeff; font-family: sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #003366; }
+        .joke-box { background: white; border-radius: 10px; padding: 30px; font-size: 20px; margin: 30px auto; width: 60%; }
+        .button { margin-top: 30px; font-size: 18px; text-decoration: none; background: #003366; color: white; padding: 10px 20px; border-radius: 5px; }
+        </style></head>
+        <body>
+            <h1>Это самый лучший анекдот на этом сайте, по твоему мнению</h1>
+            <div class="joke-box">{{ winner }}</div>
+            <a href="/battle/reset" class="button">Начать заново</a>
+        </body>
+        </html>
+        ''', winner=winner_text[0] if winner_text else "Ошибка загрузки анекдота")
+
+    left_id = session.get('current_left_id')
+    right_id = session.get('current_right_id')
+
+    if not left_id:
+        left_id = get_random_joke_id()
+    if not right_id or right_id == left_id:
+        right_id = get_random_joke_id(exclude_id=left_id)
+
+    session['current_left_id'] = left_id
+    session['current_right_id'] = right_id
+
+    left_text = get_joke_text_by_id(left_id)
+    right_text = get_joke_text_by_id(right_id)
+
+    return render_template_string('''
+    <html><head>
+    <style>
+    body { margin: 0; font-family: sans-serif; overflow-x: hidden; }
+    h1 {
+        text-align: center;
+        margin: 20px 0 5px;
+        font-size: 32px;
+    }
+    .counter {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .split { width: 50%; height: 100vh; position: fixed; top: 100px; display: flex; flex-direction: column; justify-content: center; padding: 50px; box-sizing: border-box; }
+    .left { left: 0; background: #d0eaff; }
+    .right { right: 0; background: #ffe0f0; }
+    .joke { font-size: 20px; padding: 20px; background: white; border-radius: 10px; cursor: pointer; margin: auto; }
+    .line { position: fixed; top: 100px; bottom: 90px; left: 50%; width: 2px; background: black; z-index: 0; }
+    .bottom-button { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; }
+    .button { font-size: 18px; text-decoration: none; background: #003366; color: white; padding: 10px 20px; border-radius: 5px; }
+    </style>
+    <script>
+    function vote(joke_id) {
+        fetch("/vote", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "winner_id=" + encodeURIComponent(joke_id)
+        }).then(() => {
+            location.reload();
+        });
+    }
+    </script>
+    </head>
+    <body>
+        <h1>Выбери лучший анекдот</h1>
+        <div class="counter">Батл {{ battle_count + 1 }} из 30</div>
+        <div class="split left"><div class="joke" onclick="vote({{ left_id }})">{{ left_text }}</div></div>
+        <div class="split right"><div class="joke" onclick="vote({{ right_id }})">{{ right_text }}</div></div>
+        <div class="line"></div>
+        <div class="bottom-button"><a href="/" class="button">На главную</a></div>
+    </body></html>
+    ''', left_text=left_text, right_text=right_text, left_id=left_id, right_id=right_id, battle_count=battle_count)
+
+@app.route('/vote', methods=['POST'])
+def vote():
+    winner_id = int(request.form.get('winner_id'))
+    left_id = session.get('current_left_id')
+    right_id = session.get('current_right_id')
+    battle_count = session.get('battle_count', 0)
+
+    session['winner_id'] = winner_id
+    session['battle_count'] = battle_count + 1
+
+    if winner_id == left_id:
+        # обновляем правого (проигравшего)
+        session['current_right_id'] = get_random_joke_id(exclude_id=winner_id)
     else:
-        return Response("Анекдотов пока нет.", content_type='text/plain; charset=utf-8')
+        # обновляем левого (проигравшего)
+        session['current_left_id'] = get_random_joke_id(exclude_id=winner_id)
+
+    return '', 204
+
+@app.route('/battle/reset')
+def reset_battle():
+    for key in ['battle_count', 'winner_id', 'current_left_id', 'current_right_id']:
+        session.pop(key, None)
+    return redirect('/battle')
 
 @app.route('/about')
 def about():
@@ -217,7 +336,7 @@ def contacts():
     <html>
     <head>
         <style>
-            body {
+            body {{
                 margin: 0;
                 padding: 0;
                 background-image: url('/static/me.jpg');
@@ -225,8 +344,8 @@ def contacts():
                 background-position: center;
                 font-family: Arial, sans-serif;
                 height: 100vh;
-            }
-            .overlay {
+            }}
+            .overlay {{
                 background-color: rgba(0, 0, 0, 0.5);
                 color: white;
                 height: 100%;
@@ -237,13 +356,13 @@ def contacts():
                 align-items: center;
                 text-align: center;
                 text-shadow: 0 0 5px black;
-            }
-            a {
+            }}
+            a {{
                 color: #ffcc00;
                 text-decoration: none;
                 font-size: 18px;
                 margin-top: 20px;
-            }
+            }}
         </style>
     </head>
     <body>
@@ -256,59 +375,6 @@ def contacts():
     </html>
     '''
 
-@app.route('/battle')
-def battle():
-    conn = sqlite3.connect('jokes.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, text FROM jokes ORDER BY RANDOM() LIMIT 2")
-    jokes = cursor.fetchall()
-    conn.close()
-
-    if len(jokes) == 2:
-        left_id, left_text = jokes[0]
-        right_id, right_text = jokes[1]
-    else:
-        return "<h1>Недостаточно анекдотов для битвы.</h1>"
-
-    return f'''
-    <html>
-    <head>
-        {STYLE}
-        <style>
-            .battle-container {{
-                display: flex;
-                justify-content: space-around;
-                margin-top: 50px;
-            }}
-            .joke-box {{
-                width: 40%;
-                border: 2px solid #006699;
-                padding: 20px;
-                border-radius: 10px;
-                cursor: pointer;
-            }}
-            .joke-box:hover {{
-                background-color: #d0f0ff;
-            }}
-        </style>
-    </head>
-    <body>
-        <h1>Выбери лучший анекдот!</h1>
-        <div class="battle-container">
-            <div class="joke-box" onclick="location.href='/battle/vote/{left_id}?other={right_id}'">
-                {left_text}
-            </div>
-            <div class="joke-box" onclick="location.href='/battle/vote/{right_id}?other={left_id}'">
-                {right_text}
-            </div>
-        </div>
-        <br><br>
-        <a href="/">На главную</a>
-    </body>
-    </html>
-    '''
-
-# Обработка 404 — Страница не найдена
 @app.errorhandler(404)
 def page_not_found(e):
     app.logger.error(f"Ошибка 404: {request.path} не найдена.")
@@ -322,7 +388,6 @@ def page_not_found(e):
     </body></html>
     ''', 404
 
-# Обработка 500 — Внутренняя ошибка сервера
 @app.errorhandler(500)
 def internal_error(e):
     app.logger.error(f"Ошибка 500: {e}", exc_info=True)

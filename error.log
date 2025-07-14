@@ -883,3 +883,563 @@
 2025-07-14 16:43:16,064 [INFO] 192.168.0.105 - - [14/Jul/2025 16:43:16] "GET /contacts HTTP/1.1" 200 -
 2025-07-14 16:43:16,091 [INFO] 192.168.0.105 - - [14/Jul/2025 16:43:16] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
 2025-07-14 16:43:17,230 [INFO] 192.168.0.105 - - [14/Jul/2025 16:43:17] "GET / HTTP/1.1" 200 -
+2025-07-14 16:44:27,938 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 16:44:27,938 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 16:44:31,333 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:31] "GET / HTTP/1.1" 200 -
+2025-07-14 16:44:34,707 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:34] "GET / HTTP/1.1" 200 -
+2025-07-14 16:44:45,191 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:45] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 16:44:45,212 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:45] "GET /joke/5 HTTP/1.1" 200 -
+2025-07-14 16:44:46,643 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:46] "GET /about HTTP/1.1" 200 -
+2025-07-14 16:44:47,864 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:47] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 16:44:47,923 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:47] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 16:44:49,012 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:49] "GET / HTTP/1.1" 200 -
+2025-07-14 16:44:50,843 [INFO] 192.168.0.105 - - [14/Jul/2025 16:44:50] "GET / HTTP/1.1" 200 -
+2025-07-14 16:46:27,192 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:27] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:46:35,949 [ERROR] Ошибка 404: /battle/vote/15 не найдена.
+2025-07-14 16:46:35,950 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:35] "[33mGET /battle/vote/15?other=18 HTTP/1.1[0m" 404 -
+2025-07-14 16:46:35,989 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:35] "[36mGET /static/404.jpg HTTP/1.1[0m" 304 -
+2025-07-14 16:46:47,554 [ERROR] Ошибка 404: /battle/ не найдена.
+2025-07-14 16:46:47,555 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:47] "[33mGET /battle/ HTTP/1.1[0m" 404 -
+2025-07-14 16:46:47,590 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:47] "[36mGET /static/404.jpg HTTP/1.1[0m" 304 -
+2025-07-14 16:46:51,301 [INFO] 192.168.0.105 - - [14/Jul/2025 16:46:51] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:51:26,007 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 16:51:26,007 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 16:51:30,555 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:30] "GET / HTTP/1.1" 200 -
+2025-07-14 16:51:31,946 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:31] "GET / HTTP/1.1" 200 -
+2025-07-14 16:51:33,022 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:33] "GET / HTTP/1.1" 200 -
+2025-07-14 16:51:35,219 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:35] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 16:51:35,239 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:35] "GET /joke/15 HTTP/1.1" 200 -
+2025-07-14 16:51:36,289 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 16:51:36,309 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "GET /joke/8 HTTP/1.1" 200 -
+2025-07-14 16:51:36,521 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 16:51:36,538 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "GET /joke/4 HTTP/1.1" 200 -
+2025-07-14 16:51:36,716 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 16:51:36,735 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:36] "GET /joke/32 HTTP/1.1" 200 -
+2025-07-14 16:51:37,171 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:37] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 16:51:37,227 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:37] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 16:51:38,572 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:38] "GET / HTTP/1.1" 200 -
+2025-07-14 16:51:47,690 [INFO] 192.168.0.105 - - [14/Jul/2025 16:51:47] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:56:36,562 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 16:56:36,562 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 16:56:42,628 [INFO] 192.168.0.105 - - [14/Jul/2025 16:56:42] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:56:50,786 [INFO] 192.168.0.105 - - [14/Jul/2025 16:56:50] "GET / HTTP/1.1" 200 -
+2025-07-14 16:56:57,096 [INFO] 192.168.0.105 - - [14/Jul/2025 16:56:57] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:57:03,098 [INFO] 192.168.0.105 - - [14/Jul/2025 16:57:03] "GET /battle HTTP/1.1" 200 -
+2025-07-14 16:57:08,362 [INFO] 192.168.0.105 - - [14/Jul/2025 16:57:08] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:31,374 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 17:07:31,374 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 17:07:36,505 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:36] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:52,900 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:52] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:54,651 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:54] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:55,581 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:55] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:56,193 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:56] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:07:58,756 [INFO] 192.168.0.105 - - [14/Jul/2025 17:07:58] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:00,425 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:00] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:01,885 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:01] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:03,061 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:03] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:03,630 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:03] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:03,916 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:03] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:04,121 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:04,321 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:04,518 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:04,722 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:04,938 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:05,144 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:05,345 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:05,558 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:05,745 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:05,930 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:06,758 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:06] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:07,390 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:07] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:07,821 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:07] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:08:08,961 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:08] "GET / HTTP/1.1" 200 -
+2025-07-14 17:08:18,736 [INFO] 192.168.0.105 - - [14/Jul/2025 17:08:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:43:44,561 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 17:43:44,561 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 17:43:50,337 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:50,351 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:50,352 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:50] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:43:51,626 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:51,628 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:51,629 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:51] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:43:52,086 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:52,088 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:43:52,090 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:52] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:43:53,577 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:53] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:55,697 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:55] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:56,353 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:56] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:56,623 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:56] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:56,830 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:56] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:59,627 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:59] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:43:59,645 [INFO] 192.168.0.105 - - [14/Jul/2025 17:43:59] "GET /joke/32 HTTP/1.1" 200 -
+2025-07-14 17:44:03,081 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:03] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:03,098 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:03] "GET /joke/5 HTTP/1.1" 200 -
+2025-07-14 17:44:03,743 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:03] "POST /like/5 HTTP/1.1" 200 -
+2025-07-14 17:44:04,351 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:04,371 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "GET /joke/10 HTTP/1.1" 200 -
+2025-07-14 17:44:04,604 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:04,626 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "GET /joke/22 HTTP/1.1" 200 -
+2025-07-14 17:44:04,852 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:04,873 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:04] "GET /joke/33 HTTP/1.1" 200 -
+2025-07-14 17:44:05,093 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:05,110 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "GET /joke/13 HTTP/1.1" 200 -
+2025-07-14 17:44:05,305 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:05,327 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "GET /joke/9 HTTP/1.1" 200 -
+2025-07-14 17:44:05,521 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:05,542 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "GET /joke/17 HTTP/1.1" 200 -
+2025-07-14 17:44:05,736 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:05,752 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "GET /joke/1 HTTP/1.1" 200 -
+2025-07-14 17:44:05,925 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:05,945 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:05] "GET /joke/21 HTTP/1.1" 200 -
+2025-07-14 17:44:06,136 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:06,153 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "GET /joke/13 HTTP/1.1" 200 -
+2025-07-14 17:44:06,338 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:06,354 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "GET /joke/9 HTTP/1.1" 200 -
+2025-07-14 17:44:06,520 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:06,540 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "GET /joke/39 HTTP/1.1" 200 -
+2025-07-14 17:44:06,749 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:06,769 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "GET /joke/19 HTTP/1.1" 200 -
+2025-07-14 17:44:06,956 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:06,972 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:06] "GET /joke/17 HTTP/1.1" 200 -
+2025-07-14 17:44:07,169 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:07,186 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "GET /joke/13 HTTP/1.1" 200 -
+2025-07-14 17:44:07,396 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:07,414 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "GET /joke/4 HTTP/1.1" 200 -
+2025-07-14 17:44:07,617 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:07,639 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "GET /joke/34 HTTP/1.1" 200 -
+2025-07-14 17:44:07,820 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:07,845 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:07] "GET /joke/47 HTTP/1.1" 200 -
+2025-07-14 17:44:08,020 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:08,037 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "GET /joke/21 HTTP/1.1" 200 -
+2025-07-14 17:44:08,426 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:08,447 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "GET /joke/30 HTTP/1.1" 200 -
+2025-07-14 17:44:08,881 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:08,902 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:08] "GET /joke/49 HTTP/1.1" 200 -
+2025-07-14 17:44:09,248 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:09] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:09,265 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:09] "GET /joke/22 HTTP/1.1" 200 -
+2025-07-14 17:44:09,673 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:09] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:09,690 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:09] "GET /joke/14 HTTP/1.1" 200 -
+2025-07-14 17:44:10,515 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:10] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 17:44:10,570 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:10] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 17:44:11,891 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:11] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:12,740 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:12] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 17:44:12,767 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:12] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 17:44:13,660 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:13] "GET /about HTTP/1.1" 200 -
+2025-07-14 17:44:19,486 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:19] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:21,577 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:21] "GET /about HTTP/1.1" 200 -
+2025-07-14 17:44:24,493 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:24] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 17:44:24,520 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:24] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 17:44:25,490 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:25] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:26,775 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:26] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:44:26,792 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:26] "GET /joke/47 HTTP/1.1" 200 -
+2025-07-14 17:44:36,704 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:36,706 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:36,708 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:36] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:44:36,783 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:36,784 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:36,785 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:36] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:44:38,619 [ERROR] Exception on /battle [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:38,621 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 296, in battle
+    left = session.get('current_left', get_random_joke())
+                                       ^^^^^^^^^^^^^^^
+NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
+2025-07-14 17:44:38,622 [INFO] 192.168.0.105 - - [14/Jul/2025 17:44:38] "[35m[1mGET /battle HTTP/1.1[0m" 500 -
+2025-07-14 17:46:18,508 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:18] "GET / HTTP/1.1" 200 -
+2025-07-14 17:46:19,545 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:19] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:19,565 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:19] "GET /joke/28 HTTP/1.1" 200 -
+2025-07-14 17:46:21,022 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:21,042 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "GET /joke/29 HTTP/1.1" 200 -
+2025-07-14 17:46:21,265 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:21,282 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "GET /joke/38 HTTP/1.1" 200 -
+2025-07-14 17:46:21,471 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:21,487 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "GET /joke/30 HTTP/1.1" 200 -
+2025-07-14 17:46:21,664 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:21,682 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "GET /joke/29 HTTP/1.1" 200 -
+2025-07-14 17:46:21,858 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:21,879 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:21] "GET /joke/35 HTTP/1.1" 200 -
+2025-07-14 17:46:22,048 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:22,065 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "GET /joke/4 HTTP/1.1" 200 -
+2025-07-14 17:46:22,275 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:22,292 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "GET /joke/19 HTTP/1.1" 200 -
+2025-07-14 17:46:22,495 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:22,517 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "GET /joke/20 HTTP/1.1" 200 -
+2025-07-14 17:46:22,687 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:22,704 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "GET /joke/4 HTTP/1.1" 200 -
+2025-07-14 17:46:22,888 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 17:46:22,906 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:22] "GET /joke/16 HTTP/1.1" 200 -
+2025-07-14 17:46:40,056 [INFO] 192.168.0.105 - - [14/Jul/2025 17:46:40] "GET /about HTTP/1.1" 200 -
+2025-07-14 17:55:52,053 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 17:55:52,053 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 17:55:57,723 [INFO] 192.168.0.105 - - [14/Jul/2025 17:55:57] "GET /about HTTP/1.1" 200 -
+2025-07-14 17:55:59,374 [INFO] 192.168.0.105 - - [14/Jul/2025 17:55:59] "GET / HTTP/1.1" 200 -
+2025-07-14 17:56:00,914 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:00] "GET / HTTP/1.1" 200 -
+2025-07-14 17:56:05,912 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:13,481 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:13] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:13,517 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:13] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:15,523 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:15] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:15,562 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:15] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:17,186 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:17] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:17,215 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:17] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:18,176 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:18] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:18,203 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:18,847 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:18] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:18,875 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:19,396 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:19] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:19,423 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:19] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:20,866 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:20] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:20,900 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:20] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:21,540 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:21] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:21,568 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:22,158 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:22,191 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:22,600 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:22,628 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:23,233 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:23] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:23,267 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:23] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:23,737 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:23] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:23,769 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:23] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:24,286 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:24] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:24,319 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:24] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:24,800 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:24] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:24,834 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:24] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:25,419 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:25] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:25,447 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:25] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:56:26,051 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:26] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:56:26,083 [INFO] 192.168.0.105 - - [14/Jul/2025 17:56:26] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:42,775 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 17:59:42,775 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 17:59:48,108 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:48] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:53,240 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:53,282 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:53] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:54,051 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:54,084 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:54,497 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:54,530 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:54,729 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:54,763 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:54,952 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:54,986 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:54] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:55,750 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:55] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:55,786 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:55] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:56,329 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:56,364 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:56] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:57,299 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:57] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:57,339 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:57] "GET /battle HTTP/1.1" 200 -
+2025-07-14 17:59:59,234 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:59] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 17:59:59,266 [INFO] 192.168.0.105 - - [14/Jul/2025 17:59:59] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:00,471 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:00:00,506 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:00] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:01,571 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:01] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:00:01,603 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:01] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:03,585 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:03] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:00:03,624 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:03] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:04,903 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:04] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:00:04,934 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:04] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:06,389 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:00:06,425 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:06] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:11,586 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:11] "GET / HTTP/1.1" 200 -
+2025-07-14 18:00:13,895 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:13] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:15,500 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:15] "GET / HTTP/1.1" 200 -
+2025-07-14 18:00:16,275 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:16] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:00:16,864 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:16] "GET / HTTP/1.1" 200 -
+2025-07-14 18:00:18,646 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:18] "GET / HTTP/1.1" 200 -
+2025-07-14 18:00:21,220 [INFO] 192.168.0.105 - - [14/Jul/2025 18:00:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:12:35,080 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 18:12:35,080 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 18:12:45,887 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:45] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:12:48,771 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:48] "GET / HTTP/1.1" 200 -
+2025-07-14 18:12:50,557 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:50] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:50,579 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:50] "GET /joke/3 HTTP/1.1" 200 -
+2025-07-14 18:12:51,549 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:51] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:51,567 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:51] "GET /joke/33 HTTP/1.1" 200 -
+2025-07-14 18:12:51,963 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:51] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:51,979 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:51] "GET /joke/10 HTTP/1.1" 200 -
+2025-07-14 18:12:52,188 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:52,205 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "GET /joke/47 HTTP/1.1" 200 -
+2025-07-14 18:12:52,404 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:52,425 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "GET /joke/42 HTTP/1.1" 200 -
+2025-07-14 18:12:52,828 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:52,848 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:52] "GET /joke/46 HTTP/1.1" 200 -
+2025-07-14 18:12:53,213 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:53] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:53,229 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:53] "GET /joke/29 HTTP/1.1" 200 -
+2025-07-14 18:12:54,725 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:54] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:54,744 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:54] "GET /joke/30 HTTP/1.1" 200 -
+2025-07-14 18:12:55,794 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:55] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:55,811 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:55] "GET /joke/8 HTTP/1.1" 200 -
+2025-07-14 18:12:56,868 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:56] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:56,888 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:56] "GET /joke/50 HTTP/1.1" 200 -
+2025-07-14 18:12:57,823 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:57] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:57,842 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:57] "GET /joke/21 HTTP/1.1" 200 -
+2025-07-14 18:12:58,736 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:58] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:58,755 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:58] "GET /joke/29 HTTP/1.1" 200 -
+2025-07-14 18:12:59,640 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:59] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:12:59,660 [INFO] 192.168.0.105 - - [14/Jul/2025 18:12:59] "GET /joke/44 HTTP/1.1" 200 -
+2025-07-14 18:13:00,009 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:00] "POST /like/44 HTTP/1.1" 200 -
+2025-07-14 18:13:00,674 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:00] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:13:00,696 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:00] "GET /joke/37 HTTP/1.1" 200 -
+2025-07-14 18:13:02,042 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:02] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:13:02,058 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:02] "GET /joke/16 HTTP/1.1" 200 -
+2025-07-14 18:13:02,937 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:02] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:13:02,958 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:02] "GET /joke/23 HTTP/1.1" 200 -
+2025-07-14 18:13:03,359 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:03] "POST /like/23 HTTP/1.1" 200 -
+2025-07-14 18:13:05,886 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:05] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:13:05,902 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:05] "GET /joke/15 HTTP/1.1" 200 -
+2025-07-14 18:13:06,670 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:06] "POST /like/15 HTTP/1.1" 200 -
+2025-07-14 18:13:08,282 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:08] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:13:08,299 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:08] "GET /joke/45 HTTP/1.1" 200 -
+2025-07-14 18:13:09,554 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:09] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:12,712 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:12] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:12,746 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:12] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:15,098 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:15] "[32mGET /battle/reset HTTP/1.1[0m" 302 -
+2025-07-14 18:13:15,124 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:15] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:16,959 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:16] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:16,995 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:16] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:17,924 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:17] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:17,969 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:17] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:18,611 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:18] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:18,639 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:19,203 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:19] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:19,230 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:19] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:19,880 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:19] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:19,908 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:19] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:21,196 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:21] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:21,236 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:22,066 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:22,094 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:22,721 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:22,751 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:23,577 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:23] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:23,606 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:23] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:24,197 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:24] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:24,227 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:24] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:26,179 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:26] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:26,208 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:26] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:26,960 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:26] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:26,990 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:26] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:28,274 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:28] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:28,311 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:28] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:29,011 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:29] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:29,039 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:29] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:29,716 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:29] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:29,743 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:29] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:30,447 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:30] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:30,476 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:30] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:31,746 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:31] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:31,783 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:31] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:32,723 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:32,752 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:32] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:33,387 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:33,417 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:33] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:33,962 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:33,992 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:33] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:35,047 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:35] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:35,075 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:35] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:35,759 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:35] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:35,786 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:35] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:36,380 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:36] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:36,413 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:36] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:36,897 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:36] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:36,926 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:36] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:37,265 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:37] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:37,296 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:37] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:37,608 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:37] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:37,639 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:37] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:38,156 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:38] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:38,187 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:38] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:38,521 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:38] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:38,551 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:38] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:39,032 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:39] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:39,060 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:39] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:40,253 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:40] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:13:40,280 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:40] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:13:42,755 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:42] "[32mGET /battle/reset HTTP/1.1[0m" 302 -
+2025-07-14 18:13:42,776 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:42] "GET /battle HTTP/1.1" 200 -
