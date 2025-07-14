@@ -75,23 +75,45 @@ def update_counter():
 
 # Главная страница
 import sqlite3
+import os
+import random
 
 @app.route('/')
 def home():
-    count = update_counter()
+    if request.referrer is None:
+        count = update_counter()
+    else:
+        with open("counter.txt", "r") as f:
+            count = int(f.read())
 
-    # Получаем случайный анекдот из базы
+    # Получаем случайный анекдот
     conn = sqlite3.connect('jokes.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT id, text, likes FROM jokes ORDER BY RANDOM() LIMIT 1")
-    joke = cursor.fetchone()
+    cursor.execute("SELECT id FROM jokes ORDER BY RANDOM() LIMIT 1")
+    result = cursor.fetchone()
     conn.close()
 
-    if joke:
-        joke_id, text, likes = joke
+    if result:
+        joke_id = result[0]
+        return redirect(f'/joke/{joke_id}')
     else:
-        text = "Анекдотов нет :("
-        joke_id = 0
+        return "<h1>Анекдотов нет</h1>"
+
+@app.route('/joke/<int:joke_id>')
+def show_joke(joke_id):
+    with open("counter.txt", "r") as f:
+        count = int(f.read())
+
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT text, likes FROM jokes WHERE id = ?", (joke_id,))
+    result = cursor.fetchone()
+    conn.close()
+
+    if result:
+        text, likes = result
+    else:
+        text = "Анекдот не найден"
         likes = 0
 
     return f'''
@@ -116,7 +138,6 @@ def home():
     </html>
     '''
 
-#Обработчик лайков
 @app.route('/like/<int:joke_id>', methods=['POST'])
 def like_joke(joke_id):
     conn = sqlite3.connect('jokes.db')
@@ -124,9 +145,7 @@ def like_joke(joke_id):
     cursor.execute("UPDATE jokes SET likes = likes + 1 WHERE id = ?", (joke_id,))
     conn.commit()
     conn.close()
-    return redirect('/')
-
-# Отдаёт случайный анекдот из базы
+    return redirect(f'/joke/{joke_id}')# Отдаёт случайный анекдот из базы
 @app.route('/random')
 def random_joke():
     conn = sqlite3.connect('jokes.db')
