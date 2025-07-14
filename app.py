@@ -33,7 +33,9 @@ def get_random_joke_id(exclude_id=None, exclude_list=None):
     return result[0] if result else None
 
 def get_joke_text_by_id(joke_id):
-    conn = sqlite3.connect('jokes.db')
+    if joke_id is None:
+        return "Анекдот не найден"
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT text FROM jokes WHERE id = ?", (joke_id,))
     result = cursor.fetchone()
