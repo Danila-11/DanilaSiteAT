@@ -255,6 +255,59 @@ def contacts():
     </body>
     </html>
     '''
+
+@app.route('/battle')
+def battle():
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, text FROM jokes ORDER BY RANDOM() LIMIT 2")
+    jokes = cursor.fetchall()
+    conn.close()
+
+    if len(jokes) == 2:
+        left_id, left_text = jokes[0]
+        right_id, right_text = jokes[1]
+    else:
+        return "<h1>Недостаточно анекдотов для битвы.</h1>"
+
+    return f'''
+    <html>
+    <head>
+        {STYLE}
+        <style>
+            .battle-container {{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 50px;
+            }}
+            .joke-box {{
+                width: 40%;
+                border: 2px solid #006699;
+                padding: 20px;
+                border-radius: 10px;
+                cursor: pointer;
+            }}
+            .joke-box:hover {{
+                background-color: #d0f0ff;
+            }}
+        </style>
+    </head>
+    <body>
+        <h1>Выбери лучший анекдот!</h1>
+        <div class="battle-container">
+            <div class="joke-box" onclick="location.href='/battle/vote/{left_id}?other={right_id}'">
+                {left_text}
+            </div>
+            <div class="joke-box" onclick="location.href='/battle/vote/{right_id}?other={left_id}'">
+                {right_text}
+            </div>
+        </div>
+        <br><br>
+        <a href="/">На главную</a>
+    </body>
+    </html>
+    '''
+
 # Обработка 404 — Страница не найдена
 @app.errorhandler(404)
 def page_not_found(e):
