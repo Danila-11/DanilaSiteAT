@@ -157,7 +157,7 @@ def show_joke(joke_id):
         <h1>Анекдот дня</h1>
         <p>{text}</p>
         <button id="like-btn" onclick="likeJoke({joke_id})" {'disabled' if liked else ''}>❤️ Лайк (<span id='like-count'>{likes}</span>)</button>
-        <form action="/" method="get" style="display:inline; margin-left: 10px;">
+        <form action="/generate" method="post" style="display:inline; margin-left: 10px;">
             <button type="submit">🔁 Сгенерировать анекдот</button>
         </form>
 
