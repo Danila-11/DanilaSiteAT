@@ -81,13 +81,27 @@ import random
 
 @app.route('/')
 def home():
-    if request.referrer is None:
-        count = update_counter()
-    else:
-        with open("counter.txt", "r") as f:
-            count = int(f.read())
+    count = update_counter()
+    return f'''
+    <html>
+    <head>
+        {STYLE}
+    </head>
+    <body>
+        <h1>Добро пожаловать!</h1>
+        <p>Нажмите на кнопку ниже, чтобы получить случайный анекдот 👇</p>
+        <form action="/generate" method="post">
+            <button type="submit">🔁 Сгенерировать анекдот</button>
+        </form>
+        <br><br>
+        <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
+        <div class="counter">👁️ Посещения: {count}</div>
+    </body>
+    </html>
+    '''
 
-    # Получаем случайный анекдот
+@app.route('/generate', methods=['POST'])
+def generate_joke():
     conn = sqlite3.connect('jokes.db')
     cursor = conn.cursor()
     cursor.execute("SELECT id FROM jokes ORDER BY RANDOM() LIMIT 1")
@@ -98,7 +112,7 @@ def home():
         joke_id = result[0]
         return redirect(f'/joke/{joke_id}')
     else:
-        return "<h1>Анекдотов нет</h1>"
+        return "<h1>Анекдотов пока нет</h1>"
 
 @app.route('/joke/<int:joke_id>')
 def show_joke(joke_id):
