@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, request, render_template, redirect, url_for, Response
+from flask import Flask, request, render_template, redirect, url_for, Response, redirect
 import random
 import os
 import sqlite3
@@ -74,30 +74,52 @@ def update_counter():
     return count
 
 # Главная страница
+import sqlite3
+
 @app.route('/')
 def home():
     count = update_counter()
+
+    # Получаем случайный анекдот из базы
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, text, likes FROM jokes ORDER BY RANDOM() LIMIT 1")
+    joke = cursor.fetchone()
+    conn.close()
+
+    if joke:
+        joke_id, text, likes = joke
+    else:
+        text = "Анекдотов нет :("
+        joke_id = 0
+        likes = 0
+
     return f'''
     <html>
     <head>{STYLE}
-    <script>
-        async function getJoke() {{
-            const response = await fetch('/random');
-            const joke = await response.text();
-            document.getElementById('joke-text').innerText = joke;
-        }}
-    </script>
     </head>
     <body>
         <h1>Анекдот дня</h1>
-        <p id="joke-text">Нажми кнопку, чтобы увидеть анекдот!</p>
-        <button onclick="getJoke()">Сгенерировать анекдот</button>
-        <br><br>
+        <p>{text}</p>
+        <form action="/like/{joke_id}" method="post">
+            <button type="submit">❤️ Лайк ({likes})</button>
+        </form>
+        <br>
         <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
     </html>
     '''
+
+#Обработчик лайков
+@app.route('/like/<int:joke_id>', methods=['POST'])
+def like_joke(joke_id):
+    conn = sqlite3.connect('jokes.db')
+    cursor = conn.cursor()
+    cursor.execute("UPDATE jokes SET likes = likes + 1 WHERE id = ?", (joke_id,))
+    conn.commit()
+    conn.close()
+    return redirect('/')
 
 # Отдаёт случайный анекдот из базы
 @app.route('/random')
