@@ -117,17 +117,32 @@ def show_joke(joke_id):
         text = "Анекдот не найден"
         likes = 0
 
+    liked = joke_id in session.get('liked_jokes', [])
+
     return f'''
     <html>
-    <head>{STYLE}</head>
+    <head>
+        {STYLE}
+        <script>
+            async function likeJoke(jokeId) {{
+                const response = await fetch('/like/' + jokeId, {{
+                    method: 'POST'
+                }});
+                const result = await response.text();
+                if (result === 'ok') {{
+                    const countElem = document.getElementById('like-count');
+                    countElem.innerText = parseInt(countElem.innerText) + 1;
+                    document.getElementById('like-btn').disabled = true;
+                }} else if (result === 'already liked') {{
+                    alert("Вы уже поставили лайк этому анекдоту.");
+                }}
+            }}
+        </script>
+    </head>
     <body>
         <h1>Анекдот дня</h1>
         <p>{text}</p>
-
-        <form action="/like/{joke_id}" method="post" style="display:inline;">
-            <button type="submit">❤️ Лайк ({likes})</button>
-        </form>
-
+        <button id="like-btn" onclick="likeJoke({joke_id})" {'disabled' if liked else ''}>❤️ Лайк (<span id='like-count'>{likes}</span>)</button>
         <form action="/" method="get" style="display:inline; margin-left: 10px;">
             <button type="submit">🔁 Сгенерировать анекдот</button>
         </form>
