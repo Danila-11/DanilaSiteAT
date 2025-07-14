@@ -96,15 +96,20 @@ def home():
 
     return f'''
     <html>
-    <head>{STYLE}
-    </head>
+    <head>{STYLE}</head>
     <body>
         <h1>Анекдот дня</h1>
         <p>{text}</p>
-        <form action="/like/{joke_id}" method="post">
+
+        <form action="/like/{joke_id}" method="post" style="display:inline;">
             <button type="submit">❤️ Лайк ({likes})</button>
         </form>
-        <br>
+
+        <form action="/" method="get" style="display:inline; margin-left: 10px;">
+            <button type="submit">🔁 Сгенерировать анекдот</button>
+        </form>
+
+        <br><br>
         <a href="/about">О нас</a> | <a href="/contacts">Контакты</a>
         <div class="counter">👁️ Посещения: {count}</div>
     </body>
