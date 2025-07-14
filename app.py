@@ -7,13 +7,27 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'simon'
 
-def get_random_joke_id(exclude_id=None):
+def get_random_joke_id(exclude_id=None, exclude_list=None):
     conn = sqlite3.connect('jokes.db')
     cursor = conn.cursor()
-    if exclude_id:
-        cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
-    else:
-        cursor.execute("SELECT id FROM jokes ORDER BY RANDOM() LIMIT 1")
+
+    query = "SELECT id FROM jokes"
+    params = []
+
+    conditions = []
+    if exclude_id is not None:
+        conditions.append("id != ?")
+        params.append(exclude_id)
+    if exclude_list:
+        placeholders = ",".join(["?"] * len(exclude_list))
+        conditions.append(f"id NOT IN ({placeholders})")
+        params.extend(exclude_list)
+
+    if conditions:
+        query += " WHERE " + " AND ".join(conditions)
+
+    query += " ORDER BY RANDOM() LIMIT 1"
+    cursor.execute(query, params)
     result = cursor.fetchone()
     conn.close()
     return result[0] if result else None
@@ -208,16 +222,35 @@ def like(joke_id):
 
 @app.route('/battle')
 def battle():
+    # Начало новой битвы: сбрасываем все параметры
+    session['battle_count'] = 0
+    session['used_ids'] = []
+    session['winner_id'] = None
+    session['visited_battle'] = True
+    return redirect(url_for('battle_round'))
+
+@app.route('/battle_round')
+def battle_round():
+    # Сброс при первом заходе
+    if 'visited_battle' not in session:
+        session['visited_battle'] = True
+        session['battle_count'] = 0
+        session['winner_id'] = None
+        session['used_ids'] = []
+
+        # Инициализация первых шуток
+        left_id = get_random_joke_id(exclude_list=[])
+        right_id = get_random_joke_id(exclude_list=[left_id])
+        session['current_left'] = left_id
+        session['current_right'] = right_id
+        session['used_ids'] = [left_id, right_id]
+
     battle_count = session.get('battle_count', 0)
+    used_ids = session.get('used_ids', [])
     winner_id = session.get('winner_id')
 
-    if battle_count >= 30 and winner_id:
-        conn = sqlite3.connect('jokes.db')
-        cursor = conn.cursor()
-        cursor.execute("SELECT text FROM jokes WHERE id = ?", (winner_id,))
-        winner_text = cursor.fetchone()
-        conn.close()
-
+    if battle_count >= 30:
+        final_text = get_joke_text_by_id(winner_id) if winner_id else "Нет данных"
         return render_template_string('''
         <html><head>
         <style>
@@ -228,22 +261,14 @@ def battle():
         </style></head>
         <body>
             <h1>Это самый лучший анекдот на этом сайте, по твоему мнению</h1>
-            <div class="joke-box">{{ winner }}</div>
-            <a href="/battle/reset" class="button">Начать заново</a>
+            <div class="joke-box">{{ final_text }}</div>
+            <a href="/" class="button">На главную</a>
         </body>
         </html>
-        ''', winner=winner_text[0] if winner_text else "Ошибка загрузки анекдота")
+        ''', final_text=final_text)
 
-    left_id = session.get('current_left_id')
-    right_id = session.get('current_right_id')
-
-    if not left_id:
-        left_id = get_random_joke_id()
-    if not right_id or right_id == left_id:
-        right_id = get_random_joke_id(exclude_id=left_id)
-
-    session['current_left_id'] = left_id
-    session['current_right_id'] = right_id
+    left_id = session.get('current_left')
+    right_id = session.get('current_right')
 
     left_text = get_joke_text_by_id(left_id)
     right_text = get_joke_text_by_id(right_id)
@@ -252,30 +277,22 @@ def battle():
     <html><head>
     <style>
     body { margin: 0; font-family: sans-serif; overflow-x: hidden; }
-    h1 {
-        text-align: center;
-        margin: 20px 0 5px;
-        font-size: 32px;
-    }
-    .counter {
-        text-align: center;
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-    .split { width: 50%; height: 100vh; position: fixed; top: 100px; display: flex; flex-direction: column; justify-content: center; padding: 50px; box-sizing: border-box; }
+    .split { width: 50%; height: 100vh; position: fixed; top: 120px; display: flex; flex-direction: column; justify-content: center; padding: 50px; box-sizing: border-box; }
     .left { left: 0; background: #d0eaff; }
     .right { right: 0; background: #ffe0f0; }
     .joke { font-size: 20px; padding: 20px; background: white; border-radius: 10px; cursor: pointer; margin: auto; }
-    .line { position: fixed; top: 100px; bottom: 90px; left: 50%; width: 2px; background: black; z-index: 0; }
+    .line { position: fixed; top: 120px; bottom: 90px; left: 50%; width: 2px; background: black; z-index: 0; }
+    h1 { text-align: center; margin-top: 30px; position: relative; z-index: 2; background: white; display: inline-block; padding: 5px 20px; }
+    .counter { text-align: center; font-size: 18px; margin-top: 5px; position: relative; z-index: 2; }
     .bottom-button { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; }
     .button { font-size: 18px; text-decoration: none; background: #003366; color: white; padding: 10px 20px; border-radius: 5px; }
     </style>
     <script>
-    function vote(joke_id) {
+    function vote(side) {
         fetch("/vote", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "winner_id=" + encodeURIComponent(joke_id)
+            body: "side=" + encodeURIComponent(side)
         }).then(() => {
             location.reload();
         });
@@ -285,30 +302,38 @@ def battle():
     <body>
         <h1>Выбери лучший анекдот</h1>
         <div class="counter">Батл {{ battle_count + 1 }} из 30</div>
-        <div class="split left"><div class="joke" onclick="vote({{ left_id }})">{{ left_text }}</div></div>
-        <div class="split right"><div class="joke" onclick="vote({{ right_id }})">{{ right_text }}</div></div>
+        <div class="split left"><div class="joke" onclick="vote('left')">{{ left_text }}</div></div>
+        <div class="split right"><div class="joke" onclick="vote('right')">{{ right_text }}</div></div>
         <div class="line"></div>
         <div class="bottom-button"><a href="/" class="button">На главную</a></div>
     </body></html>
-    ''', left_text=left_text, right_text=right_text, left_id=left_id, right_id=right_id, battle_count=battle_count)
+    ''', left_text=left_text, right_text=right_text, battle_count=battle_count)
+
 
 @app.route('/vote', methods=['POST'])
 def vote():
-    winner_id = int(request.form.get('winner_id'))
-    left_id = session.get('current_left_id')
-    right_id = session.get('current_right_id')
+    side = request.form.get('side')
+    left_id = session.get('current_left')
+    right_id = session.get('current_right')
+    used_ids = session.get('used_ids', [])
     battle_count = session.get('battle_count', 0)
 
-    session['winner_id'] = winner_id
-    session['battle_count'] = battle_count + 1
-
-    if winner_id == left_id:
-        # обновляем правого (проигравшего)
-        session['current_right_id'] = get_random_joke_id(exclude_id=winner_id)
+    if side == 'left':
+        winner_id = left_id
+        used_ids.append(right_id)
+        new_right = get_random_joke_id(exclude_list=used_ids + [left_id])
+        session['current_right'] = new_right
+        used_ids.append(new_right)
     else:
-        # обновляем левого (проигравшего)
-        session['current_left_id'] = get_random_joke_id(exclude_id=winner_id)
+        winner_id = right_id
+        used_ids.append(left_id)
+        new_left = get_random_joke_id(exclude_list=used_ids + [right_id])
+        session['current_left'] = new_left
+        used_ids.append(new_left)
 
+    session['winner_id'] = winner_id
+    session['used_ids'] = used_ids
+    session['battle_count'] = battle_count + 1
     return '', 204
 
 @app.route('/battle/reset')
@@ -336,17 +361,16 @@ def contacts():
     <html>
     <head>
         <style>
-            body {{
+            html, body {
                 margin: 0;
                 padding: 0;
-                background-image: url('/static/me.jpg');
-                background-size: cover;
-                background-position: center;
+                height: 100%;
                 font-family: Arial, sans-serif;
-                height: 100vh;
-            }}
-            .overlay {{
-                background-color: rgba(0, 0, 0, 0.5);
+                background: url('/static/me.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+            .overlay {
+                background-color: rgba(0, 0, 0, 0.6);
                 color: white;
                 height: 100%;
                 width: 100%;
@@ -356,19 +380,28 @@ def contacts():
                 align-items: center;
                 text-align: center;
                 text-shadow: 0 0 5px black;
-            }}
-            a {{
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 20px;
+            }
+            a {
                 color: #ffcc00;
                 text-decoration: none;
                 font-size: 18px;
                 margin-top: 20px;
-            }}
+            }
         </style>
     </head>
     <body>
         <div class="overlay">
             <h1>Контакты</h1>
-            <p>Связаться со мной можно по почте: Danila.Isaev.com</p>
+            <p>Связаться со мной можно по почте: <strong>Danila.Isaev.com</strong></p>
             <a href="/">На главную</a> | <a href="/about">О нас</a>
         </div>
     </body>

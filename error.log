@@ -1443,3 +1443,1774 @@ NameError: name 'get_random_joke' is not defined. Did you mean: 'random_joke'?
 2025-07-14 18:13:40,280 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:40] "GET /battle HTTP/1.1" 200 -
 2025-07-14 18:13:42,755 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:42] "[32mGET /battle/reset HTTP/1.1[0m" 302 -
 2025-07-14 18:13:42,776 [INFO] 192.168.0.105 - - [14/Jul/2025 18:13:42] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:30:52,566 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 18:30:52,567 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 18:30:58,473 [INFO] 192.168.0.105 - - [14/Jul/2025 18:30:58] "GET / HTTP/1.1" 200 -
+2025-07-14 18:31:00,324 [INFO] 192.168.0.105 - - [14/Jul/2025 18:31:00] "GET / HTTP/1.1" 200 -
+2025-07-14 18:31:03,419 [INFO] 192.168.0.105 - - [14/Jul/2025 18:31:03] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 18:31:07,562 [INFO] 192.168.0.105 - - [14/Jul/2025 18:31:07] "GET / HTTP/1.1" 200 -
+2025-07-14 18:31:08,686 [INFO] 192.168.0.105 - - [14/Jul/2025 18:31:08] "GET /about HTTP/1.1" 200 -
+2025-07-14 18:31:09,864 [INFO] 192.168.0.105 - - [14/Jul/2025 18:31:09] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 18:32:03,271 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:03] "GET / HTTP/1.1" 200 -
+2025-07-14 18:32:05,110 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:05] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:08,789 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:08] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:09,877 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:09] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:13,133 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:13,136 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:13,137 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:13] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:13,177 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:13] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:15,355 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:15,357 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:15,358 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:15] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:15,404 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:15] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:16,324 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:16,325 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:16,326 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:16] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:16,359 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:16] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:16,849 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:16,850 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:16,852 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:16] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:16,884 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:16] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:17,349 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:17,351 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:17,352 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:17] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:17,384 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:17] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:17,882 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:17,883 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:17,885 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:17] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:17,915 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:17] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:18,336 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,337 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,338 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:18,370 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:18,641 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,643 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,644 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:18,675 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:18,954 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,955 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:18,957 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:18,988 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:18] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:19,230 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:19,232 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:19,233 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:19] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:19,265 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:19] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:19,954 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:19,955 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:19,957 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:19] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:19,987 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:19] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:20,414 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:20,416 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:20,417 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:20] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:20,448 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:20] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:20,776 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:20,778 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:20,779 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:20] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:20,810 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:20] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:21,091 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,092 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,094 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:21,125 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:21,332 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,334 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,335 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:21,367 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:21,650 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,652 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:21,653 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:21,684 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:21] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:22,088 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:22,089 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:22,091 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:22] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:22,125 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:32:22,718 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:22,719 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:32:22,721 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:22] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:32:22,751 [INFO] 192.168.0.105 - - [14/Jul/2025 18:32:22] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:33:14,874 [INFO] 192.168.0.105 - - [14/Jul/2025 18:33:14] "GET / HTTP/1.1" 200 -
+2025-07-14 18:34:32,117 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 18:34:32,117 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 18:34:35,663 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:35] "GET / HTTP/1.1" 200 -
+2025-07-14 18:34:37,900 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:37] "GET /about HTTP/1.1" 200 -
+2025-07-14 18:34:38,889 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:38] "GET / HTTP/1.1" 200 -
+2025-07-14 18:34:40,009 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:40] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 18:34:40,071 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:40] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 18:34:43,772 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:43] "GET / HTTP/1.1" 200 -
+2025-07-14 18:34:45,026 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:45] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:34:46,733 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:46,736 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:46,738 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:46] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:34:46,770 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:46] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:34:47,419 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:47,420 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:47,421 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:47] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:34:47,454 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:47] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:34:47,805 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:47,807 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    new_right = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:47,809 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:47] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:34:47,839 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:47] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:34:49,806 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:49,808 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 309, in vote
+    new_left = get_random_joke_id(exclude_id=used_ids + [winner_id])
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 14, in get_random_joke_id
+    cursor.execute("SELECT id FROM jokes WHERE id != ? ORDER BY RANDOM() LIMIT 1", (exclude_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Error binding parameter 1: type 'list' is not supported
+2025-07-14 18:34:49,809 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:49] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:34:49,841 [INFO] 192.168.0.105 - - [14/Jul/2025 18:34:49] "GET /battle HTTP/1.1" 200 -
+2025-07-14 18:45:04,619 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 18:45:04,620 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 18:45:10,444 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:10] "GET / HTTP/1.1" 200 -
+2025-07-14 18:45:11,799 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:11] "GET / HTTP/1.1" 200 -
+2025-07-14 18:45:14,507 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:14] "GET /about HTTP/1.1" 200 -
+2025-07-14 18:45:15,773 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:15] "GET / HTTP/1.1" 200 -
+2025-07-14 18:45:16,778 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:16] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 18:45:16,838 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:16] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 18:45:17,599 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:17] "GET / HTTP/1.1" 200 -
+2025-07-14 18:45:18,449 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:18] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 18:45:18,473 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:18] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:20,340 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:20,343 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:20,344 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:20] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:20,383 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:20] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:21,962 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:21,963 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:21,964 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:21] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:22,003 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:22] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:22,724 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:22,727 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:22,735 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:22] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:22,766 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:22] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:23,838 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:23,839 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:23,840 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:23] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:23,870 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:23] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:24,433 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:24,434 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:24,436 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:24] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:24,466 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:24] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:25,222 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:25,223 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:25,225 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:25] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:25,255 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:25] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:25,823 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:25,824 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:25,826 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:25] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:25,857 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:25] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:26,299 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:26,300 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:26,301 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:26] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:26,332 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:26] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:45:26,780 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:26,781 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:45:26,783 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:26] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:45:26,812 [INFO] 192.168.0.105 - - [14/Jul/2025 18:45:26] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:46:14,344 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:46:14,345 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 301, in vote
+    session['current_right_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:46:14,346 [INFO] 192.168.0.105 - - [14/Jul/2025 18:46:14] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:46:14,378 [INFO] 192.168.0.105 - - [14/Jul/2025 18:46:14] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:46:14,961 [ERROR] Exception on /vote [POST]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:46:14,962 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 304, in vote
+    session['current_left_id'] = get_random_joke_id(exclude_id=winner_id, used_ids=used_ids)
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_random_joke_id() got an unexpected keyword argument 'used_ids'
+2025-07-14 18:46:14,963 [INFO] 192.168.0.105 - - [14/Jul/2025 18:46:14] "[35m[1mPOST /vote HTTP/1.1[0m" 500 -
+2025-07-14 18:46:14,993 [INFO] 192.168.0.105 - - [14/Jul/2025 18:46:14] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:24,999 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 18:52:24,999 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 18:52:29,898 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:29] "GET / HTTP/1.1" 200 -
+2025-07-14 18:52:31,539 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:31] "GET / HTTP/1.1" 200 -
+2025-07-14 18:52:32,833 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:32] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:52:32,856 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:32] "GET /joke/18 HTTP/1.1" 200 -
+2025-07-14 18:52:34,442 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:34] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:52:34,459 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:34] "GET /joke/37 HTTP/1.1" 200 -
+2025-07-14 18:52:34,749 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:34] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:52:34,771 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:34] "GET /joke/27 HTTP/1.1" 200 -
+2025-07-14 18:52:35,023 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:35] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 18:52:35,045 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:35] "GET /joke/14 HTTP/1.1" 200 -
+2025-07-14 18:52:37,534 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:37] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 18:52:37,592 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:37] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 18:52:38,867 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:38] "GET / HTTP/1.1" 200 -
+2025-07-14 18:52:40,875 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:40] "GET /about HTTP/1.1" 200 -
+2025-07-14 18:52:42,876 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:42] "GET / HTTP/1.1" 200 -
+2025-07-14 18:52:45,057 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:45] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 18:52:45,078 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:45] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:47,113 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:47] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:47,150 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:47] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:50,031 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:50] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:50,061 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:50] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:51,787 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:51] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:51,822 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:51] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:53,337 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:53,370 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:53] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:55,556 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:55] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:55,588 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:55] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:56,413 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:56,445 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:56] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:57,991 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:57] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:58,023 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:58] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:52:58,600 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:58] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:52:58,640 [INFO] 192.168.0.105 - - [14/Jul/2025 18:52:58] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:00,480 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:00,509 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:00] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:02,599 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:02] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:02,629 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:02] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:03,608 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:03] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:03,638 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:03] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:04,618 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:04] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:04,648 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:04] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:05,670 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:05] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:05,699 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:05] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:06,627 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:06,655 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:06] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:07,679 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:07,710 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:07] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:08,823 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:08,858 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:08] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:10,334 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:10,363 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:10] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:11,268 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:11] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:11,299 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:11] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:12,707 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:12] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:12,737 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:12] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:13,752 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:13] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:13,782 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:13] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:16,332 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:16] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:16,363 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:16] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:17,350 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:17] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:17,379 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:17] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:18,481 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:18] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:18,511 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:18] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:27,344 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:27] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:27,379 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:27] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:28,432 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:28] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:28,460 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:28] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:30,228 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:30] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:30,258 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:30] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:31,300 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:31] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:31,330 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:31] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:32,999 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:33,027 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:33] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:33,705 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:33,733 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:33] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:34,408 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:34] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:34,437 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:34] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:39,142 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:39] "GET / HTTP/1.1" 200 -
+2025-07-14 18:53:40,011 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:40] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 18:53:40,044 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:40] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:41,013 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:41,043 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:41,212 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:41,242 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:41,408 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:53:41,438 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:41] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:53:42,525 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:42] "GET / HTTP/1.1" 200 -
+2025-07-14 18:53:43,725 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:43] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 18:53:43,744 [INFO] 192.168.0.105 - - [14/Jul/2025 18:53:43] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:54:06,756 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:54:06,787 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:06] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:54:07,245 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:54:07,274 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:07] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:54:07,517 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:54:07,546 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:07] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 18:54:08,327 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 18:54:08,358 [INFO] 192.168.0.105 - - [14/Jul/2025 18:54:08] "GET /battle/round HTTP/1.1" 200 -
+2025-07-14 19:04:14,143 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 19:04:14,143 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 19:04:23,933 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:23] "GET / HTTP/1.1" 200 -
+2025-07-14 19:04:25,603 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:25] "GET / HTTP/1.1" 200 -
+2025-07-14 19:04:27,675 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:27] "GET /about HTTP/1.1" 200 -
+2025-07-14 19:04:28,702 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:28] "GET / HTTP/1.1" 200 -
+2025-07-14 19:04:29,300 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:29] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 19:04:29,354 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:29] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 19:04:30,177 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:30] "GET / HTTP/1.1" 200 -
+2025-07-14 19:04:31,075 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:31] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:04:31,095 [ERROR] Exception on /battle_round [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:31,098 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:31,100 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:31] "[35m[1mGET /battle_round HTTP/1.1[0m" 500 -
+2025-07-14 19:04:33,841 [ERROR] Exception on /battle_round [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:33,843 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:33,844 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:33] "[35m[1mGET /battle_round HTTP/1.1[0m" 500 -
+2025-07-14 19:04:35,740 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:35] "GET / HTTP/1.1" 200 -
+2025-07-14 19:04:36,796 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:36] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:04:36,819 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:36] "GET /joke/40 HTTP/1.1" 200 -
+2025-07-14 19:04:37,481 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:37] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:04:37,498 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:37] "GET /joke/49 HTTP/1.1" 200 -
+2025-07-14 19:04:37,821 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:37] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:04:37,842 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:37] "GET /joke/31 HTTP/1.1" 200 -
+2025-07-14 19:04:38,409 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:38] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:04:38,425 [ERROR] Exception on /battle_round [GET]
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:38,426 [ERROR] Ошибка 500: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\danila.isaev\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\danila.isaev\Desktop\MySite\app.py", line 273, in battle_round
+    right_id = getRandomJokeId(exclude_ids=used_ids + [left_id])
+               ^^^^^^^^^^^^^^^
+NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke_id'?
+2025-07-14 19:04:38,428 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:38] "[35m[1mGET /battle_round HTTP/1.1[0m" 500 -
+2025-07-14 19:04:39,392 [INFO] 192.168.0.105 - - [14/Jul/2025 19:04:39] "GET / HTTP/1.1" 200 -
+2025-07-14 19:09:35,308 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 19:09:35,309 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 19:09:39,209 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:39] "GET / HTTP/1.1" 200 -
+2025-07-14 19:09:40,379 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:40] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:40,401 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:40] "GET /joke/24 HTTP/1.1" 200 -
+2025-07-14 19:09:41,160 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:41,178 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "GET /joke/17 HTTP/1.1" 200 -
+2025-07-14 19:09:41,535 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:41,551 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "GET /joke/27 HTTP/1.1" 200 -
+2025-07-14 19:09:41,758 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:41,775 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "GET /joke/35 HTTP/1.1" 200 -
+2025-07-14 19:09:41,945 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:41,967 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:41] "GET /joke/36 HTTP/1.1" 200 -
+2025-07-14 19:09:42,140 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:42] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:42,162 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:42] "GET /joke/41 HTTP/1.1" 200 -
+2025-07-14 19:09:42,732 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:42] "GET /contacts HTTP/1.1" 200 -
+2025-07-14 19:09:42,787 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:42] "[36mGET /static/me.jpg HTTP/1.1[0m" 304 -
+2025-07-14 19:09:43,912 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:43] "GET / HTTP/1.1" 200 -
+2025-07-14 19:09:44,742 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:44] "GET /about HTTP/1.1" 200 -
+2025-07-14 19:09:46,154 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:46] "GET / HTTP/1.1" 200 -
+2025-07-14 19:09:46,697 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:46] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:46,714 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:46] "GET /joke/40 HTTP/1.1" 200 -
+2025-07-14 19:09:48,102 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:48,119 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "GET /joke/36 HTTP/1.1" 200 -
+2025-07-14 19:09:48,321 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:48,339 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "GET /joke/28 HTTP/1.1" 200 -
+2025-07-14 19:09:48,513 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:48,531 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "GET /joke/46 HTTP/1.1" 200 -
+2025-07-14 19:09:48,714 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:48,736 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "GET /joke/26 HTTP/1.1" 200 -
+2025-07-14 19:09:48,918 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:48,935 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:48] "GET /joke/42 HTTP/1.1" 200 -
+2025-07-14 19:09:49,122 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:49] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:49,144 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:49] "GET /joke/13 HTTP/1.1" 200 -
+2025-07-14 19:09:49,391 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:49] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:49,408 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:49] "GET /joke/47 HTTP/1.1" 200 -
+2025-07-14 19:09:50,977 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:50] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2025-07-14 19:09:50,995 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:50] "GET /joke/14 HTTP/1.1" 200 -
+2025-07-14 19:09:51,795 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:51] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:09:51,817 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:51] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:09:54,580 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:09:54,615 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:54] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:09:56,876 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:09:56,908 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:56] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:09:58,785 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:58] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:09:58,818 [INFO] 192.168.0.105 - - [14/Jul/2025 19:09:58] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:01,003 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:01] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:01,033 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:01] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:06,635 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:06,668 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:07,627 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:07,658 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:07] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:08,584 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:08,617 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:08] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:09,486 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:09] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:09,516 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:09] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:10,257 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:10,288 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:10] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:10,993 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:11,023 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:11] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:11,643 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:11] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:11,673 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:11] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:13,026 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:13] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:13,056 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:13] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:13,730 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:13] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:13,761 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:13] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:15,291 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:15] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:15,321 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:15] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:16,472 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:16] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:16,503 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:16] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:29,850 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:29] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:32,651 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:32] "GET / HTTP/1.1" 200 -
+2025-07-14 19:10:33,761 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:33] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:10:33,779 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:33] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:43,510 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:43] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:43,540 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:43] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:45,062 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:45] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:45,098 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:45] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:46,260 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:46] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:46,295 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:46] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:47,451 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:47] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:47,481 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:47] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:50,892 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:50] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:50,922 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:50] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:51,945 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:51] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:51,976 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:51] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:53,477 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:53,508 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:53] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:54,453 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:54,483 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:54] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:55,818 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:55] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:55,848 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:55] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:56,998 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:57,030 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:57] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:10:58,799 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:58] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:10:58,828 [INFO] 192.168.0.105 - - [14/Jul/2025 19:10:58] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:11:00,608 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:11:00,642 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:00] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:11:02,062 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:02] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:11:02,093 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:02] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:11:03,350 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:03] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:11:03,381 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:03] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:11:06,799 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:11:06,831 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:11:07,900 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:11:07,930 [INFO] 192.168.0.105 - - [14/Jul/2025 19:11:07] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:12,594 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-14 19:21:12,595 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-14 19:21:17,773 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:17] "GET / HTTP/1.1" 200 -
+2025-07-14 19:21:19,098 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:19] "GET / HTTP/1.1" 200 -
+2025-07-14 19:21:20,851 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:20] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:21:20,871 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:20] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:23,005 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:23] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:23,035 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:23] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:24,428 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:24] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:24,457 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:24] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:25,996 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:25] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:26,025 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:26] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:26,851 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:26] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:26,879 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:26] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:28,251 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:28] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:28,284 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:28] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:29,117 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:29] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:29,145 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:29] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:29,805 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:29] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:29,836 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:29] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:30,634 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:30] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:30,662 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:30] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:31,336 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:31] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:31,365 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:31] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:32,271 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:32,301 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:32] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:33,042 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:33,070 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:33] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:33,550 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:33,580 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:33] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:34,445 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:34] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:34,474 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:34] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:35,267 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:35] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:35,296 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:35] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:36,401 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:36] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:36,428 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:36] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:37,296 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:37] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:37,322 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:37] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:38,498 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:38] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:38,526 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:38] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:39,206 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:39] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:39,237 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:39] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:40,103 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:40] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:40,132 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:40] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:41,701 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:41] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:41,728 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:41] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:42,700 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:42] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:42,726 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:42] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:44,007 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:44] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:44,041 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:44] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:45,051 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:45] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:45,081 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:45] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:47,044 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:47] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:47,074 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:47] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:48,170 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:48] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:48,200 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:48] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:49,209 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:49] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:49,237 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:49] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:50,326 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:50] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:50,354 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:50] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:52,366 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:52] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:52,394 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:52] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:53,770 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:53,798 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:53] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:56,105 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:21:56,134 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:56] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:21:59,146 [INFO] 192.168.0.105 - - [14/Jul/2025 19:21:59] "GET / HTTP/1.1" 200 -
+2025-07-14 19:22:00,370 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:00] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:22:00,388 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:00] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:02,818 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:02] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:02,846 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:02] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:04,973 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:04] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:05,003 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:05] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:05,651 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:05] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:05,680 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:05] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:06,223 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:06,253 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:06,790 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:06,820 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:07,838 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:07,868 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:07] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:08,786 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:08,815 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:08] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:10,064 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:10,094 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:10] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:10,744 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:10,775 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:10] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:11,368 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:11] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:11,404 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:11] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:12,043 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:12] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:12,071 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:12] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:12,696 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:12] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:12,723 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:12] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:13,556 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:13] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:13,586 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:13] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:14,274 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:14] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:14,309 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:14] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:15,004 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:15] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:15,033 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:15] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:15,737 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:15] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:15,767 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:15] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:16,754 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:16] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:16,783 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:16] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:17,603 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:17] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:17,632 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:17] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:18,342 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:18] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:18,372 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:18] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:19,081 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:19] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:19,110 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:19] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:19,863 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:19] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:19,893 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:19] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:20,625 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:20] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:20,654 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:20] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:21,403 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:21] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:21,432 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:21] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:22,110 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:22,138 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:22] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:22,807 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:22] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:22,836 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:22] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:23,968 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:23] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:23,997 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:23] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:24,900 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:24] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:24,929 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:24] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:25,699 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:25] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:25,729 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:25] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:26,638 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:26] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:26,667 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:26] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:27,693 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:27] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:27,721 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:27] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:30,412 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:30] "GET / HTTP/1.1" 200 -
+2025-07-14 19:22:31,274 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:31] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:22:31,293 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:31] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:32,537 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:32,565 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:32,761 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:32,789 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:32,966 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:32,996 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:32] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:33,205 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:33,232 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:33] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:33,703 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:33] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:33,732 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:33] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:34,193 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:34] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:34,221 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:34] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:34,647 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:34] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:34,675 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:34] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:35,157 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:35] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:35,186 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:35] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:35,681 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:35] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:35,711 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:35] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:36,158 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:36] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:36,188 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:36] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:36,727 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:36] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:36,757 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:36] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:38,221 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:38] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:38,252 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:38] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:38,823 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:38] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:38,852 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:38] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:39,534 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:39] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:39,564 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:39] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:40,233 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:40] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:40,263 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:40] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:40,908 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:40] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:40,935 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:40] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:41,611 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:41] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:41,639 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:41] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:42,350 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:42] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:42,381 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:42] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:42,936 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:42] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:42,965 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:42] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:43,744 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:43] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:43,773 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:43] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:44,428 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:44] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:44,460 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:44] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:45,188 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:45] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:45,216 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:45] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:46,054 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:46] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:46,086 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:46] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:47,486 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:47] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:47,517 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:47] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:48,440 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:48] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:48,468 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:48] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:49,115 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:49] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:49,162 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:49] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:49,810 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:49] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:49,840 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:49] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:50,600 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:50] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:50,629 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:50] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:51,894 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:51] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:51,924 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:51] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:52,779 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:52] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:52,808 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:52] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:54,488 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:54] "GET / HTTP/1.1" 200 -
+2025-07-14 19:22:55,649 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:55] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-14 19:22:55,668 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:55] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:56,460 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:56,490 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:56] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:56,793 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:56] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:56,824 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:56] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:57,052 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:57] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:57,082 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:57] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:57,601 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:57] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:57,631 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:57] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:58,172 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:58] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:58,200 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:58] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:58,864 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:58] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:58,893 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:58] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:59,258 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:59,292 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:59,530 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:59,562 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:22:59,756 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:22:59,787 [INFO] 192.168.0.105 - - [14/Jul/2025 19:22:59] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:00,278 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:00,306 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:00] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:00,697 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:00,726 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:00] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:00,985 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:00] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:01,013 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:01] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:01,221 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:01] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:01,251 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:01] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:01,973 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:01] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:02,002 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:02] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:02,450 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:02] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:02,480 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:02] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:03,008 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:03] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:03,036 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:03] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:03,502 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:03] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:03,532 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:03] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:04,080 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:04] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:04,110 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:04] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:04,670 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:04] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:04,699 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:04] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:05,390 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:05] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:05,418 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:05] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:05,871 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:05] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:05,902 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:05] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:06,339 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:06,368 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:06,855 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:06] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:06,885 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:06] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:07,404 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:07] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:07,435 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:07] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:08,166 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:08,196 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:08,522 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:08,551 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:08,863 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:08,892 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:08] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:09,332 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:09] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:09,361 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:09] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:09,863 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:09] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:09,894 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:09] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:10,464 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:10] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-14 19:23:10,494 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:10] "GET /battle_round HTTP/1.1" 200 -
+2025-07-14 19:23:12,695 [INFO] 192.168.0.105 - - [14/Jul/2025 19:23:12] "GET / HTTP/1.1" 200 -
