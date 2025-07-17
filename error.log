@@ -3430,3 +3430,20 @@ NameError: name 'getRandomJokeId' is not defined. Did you mean: 'get_random_joke
 2025-07-17 12:20:30,999 [INFO] 192.168.0.105 - - [17/Jul/2025 12:20:30] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
 2025-07-17 12:20:31,038 [INFO] 192.168.0.105 - - [17/Jul/2025 12:20:31] "GET /battle_round HTTP/1.1" 200 -
 2025-07-17 12:20:32,175 [INFO] 192.168.0.105 - - [17/Jul/2025 12:20:32] "GET / HTTP/1.1" 200 -
+2025-07-17 12:54:44,726 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.105:5000
+2025-07-17 12:54:44,726 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-17 12:54:49,783 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:49] "GET / HTTP/1.1" 200 -
+2025-07-17 12:54:51,436 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:51] "[32mGET /battle HTTP/1.1[0m" 302 -
+2025-07-17 12:54:51,466 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:51] "GET /battle_round HTTP/1.1" 200 -
+2025-07-17 12:54:52,516 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:52] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-17 12:54:52,548 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:52] "GET /battle_round HTTP/1.1" 200 -
+2025-07-17 12:54:53,020 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-17 12:54:53,052 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:53] "GET /battle_round HTTP/1.1" 200 -
+2025-07-17 12:54:53,633 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:53] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-17 12:54:53,665 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:53] "GET /battle_round HTTP/1.1" 200 -
+2025-07-17 12:54:54,021 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:54] "[35m[1mPOST /vote HTTP/1.1[0m" 204 -
+2025-07-17 12:54:54,055 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:54] "GET /battle_round HTTP/1.1" 200 -
+2025-07-17 12:54:55,129 [INFO] 192.168.0.105 - - [17/Jul/2025 12:54:55] "GET / HTTP/1.1" 200 -

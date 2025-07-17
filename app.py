@@ -227,32 +227,32 @@ def like(joke_id):
 
 @app.route('/battle')
 def battle():
-    # Начало новой битвы: сбрасываем все параметры
-    session['battle_count'] = 0
-    session['used_ids'] = []
-    session['winner_id'] = None
-    session['visited_battle'] = True
+    session.clear()  # Полный сброс при новом заходе
     return redirect(url_for('battle_round'))
 
 @app.route('/battle_round')
 def battle_round():
-    # Сброс при первом заходе
-    if 'visited_battle' not in session:
-        session['visited_battle'] = True
+    # Инициализация сессии, если зашли впервые
+    if 'battle_count' not in session:
         session['battle_count'] = 0
         session['winner_id'] = None
         session['used_ids'] = []
 
-        # Инициализация первых шуток
-        left_id = get_random_joke_id(exclude_list=[])
+        # Получаем два уникальных анекдота
+        left_id = get_random_joke_id()
+        session['used_ids'].append(left_id)
+
         right_id = get_random_joke_id(exclude_list=[left_id])
+        session['used_ids'].append(right_id)
+
         session['current_left'] = left_id
         session['current_right'] = right_id
-        session['used_ids'] = [left_id, right_id]
 
-    battle_count = session.get('battle_count', 0)
-    used_ids = session.get('used_ids', [])
-    winner_id = session.get('winner_id')
+    battle_count = session['battle_count']
+    winner_id = session['winner_id']
+    used_ids = session['used_ids']
+    left_id = session['current_left']
+    right_id = session['current_right']
 
     if battle_count >= 30:
         final_text = get_joke_text_by_id(winner_id) if winner_id else "Нет данных"
@@ -271,9 +271,6 @@ def battle_round():
         </body>
         </html>
         ''', final_text=final_text)
-
-    left_id = session.get('current_left')
-    right_id = session.get('current_right')
 
     left_text = get_joke_text_by_id(left_id)
     right_text = get_joke_text_by_id(right_id)
@@ -313,7 +310,6 @@ def battle_round():
         <div class="bottom-button"><a href="/" class="button">На главную</a></div>
     </body></html>
     ''', left_text=left_text, right_text=right_text, battle_count=battle_count)
-
 
 @app.route('/vote', methods=['POST'])
 def vote():
