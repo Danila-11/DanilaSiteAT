@@ -4,11 +4,14 @@ import random
 import os
 import sqlite3
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'jokes.db')
+
 app = Flask(__name__)
 app.secret_key = 'simon'
 
 def get_random_joke_id(exclude_id=None, exclude_list=None):
-    conn = sqlite3.connect('jokes.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     query = "SELECT id FROM jokes"
@@ -53,7 +56,7 @@ logging.basicConfig(
 # === ФУНКЦИИ ===
 
 def get_random_joke_from_db(exclude_text=None):
-    conn = sqlite3.connect('jokes.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     if exclude_text:
@@ -141,7 +144,7 @@ def home():
 
 @app.route('/generate', methods=['POST'])
 def generate_joke():
-    conn = sqlite3.connect('jokes.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT id FROM jokes ORDER BY RANDOM() LIMIT 1")
     result = cursor.fetchone()
@@ -158,7 +161,7 @@ def show_joke(joke_id):
     with open("counter.txt", "r") as f:
         count = int(f.read())
 
-    conn = sqlite3.connect('jokes.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT text, likes FROM jokes WHERE id = ?", (joke_id,))
     result = cursor.fetchone()
@@ -211,7 +214,7 @@ def like(joke_id):
     if joke_id in liked_jokes:
         return 'already liked', 200
 
-    conn = sqlite3.connect('jokes.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('UPDATE jokes SET likes = likes + 1 WHERE id = ?', (joke_id,))
     conn.commit()
